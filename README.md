@@ -23,3 +23,13 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 # projet-vue2
+
+
+
+### TODO
+- Title
+- change Home, Lab, Library to tabs
+  - https://vuetifyjs.com/en/components/tabs/
+- change buttom
+- Library Table
+  - https://vuetifyjs.com/en/components/simple-tables/
