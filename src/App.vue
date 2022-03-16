@@ -21,7 +21,11 @@ export default {
   name: 'App',
   data: () => {
     return {
-      titles: [{ text: "Home", color: "black", path: "/home" }, { text: "Lab", color: "blue", path: "/labo/slice" }, { text: "Library", color: "red", path: "/library/view" }],
+      titles: [
+        { text: "Home", color: "black", path: "/home" },
+        { text: "Lab", color: "blue", path: "/labo/slice" },
+        { text: "Library", color: "red", path: "/library/view" }
+      ],
       currentMenu: 0,
       samples: [],
       collec: viruses

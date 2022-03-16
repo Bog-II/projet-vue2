@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <table>
       <tr>
         <td>Name</td>
@@ -17,7 +17,31 @@
         </td>
       </tr>
     </table>
-  </div>
+  </div>-->
+
+  <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">Name</th>
+          <th class="text-left">Calories</th>
+          <th class="text-left">% Mortality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(v, index) in collec" :key="index">
+          <td>{{ v.name }}</td>
+          <td>{{ v.code }}</td>
+          <td>{{ v.mortalite }}</td>
+          <td>
+            <button
+              @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
+            >Clone virus for the lab</button>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
 </template>
 
 <script>
