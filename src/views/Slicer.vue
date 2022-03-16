@@ -20,11 +20,11 @@
     </v-simple-table>
 
     <v-container>
-      <v-row class="d-flex justify-center">
-        <v-col cols="12" sm="6" md="3">
+      <v-row id="row-text-fields">
+        <v-col cols="12" sm="6" md="2">
           <v-text-field label="Part Length" v-model.number="cutFactor" filled class="pa-0" />
         </v-col>
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="6" md="2">
           <v-text-field
             label="Nombre de mutations"
             v-model.number="nbMutation"
@@ -36,16 +36,16 @@
     </v-container>
 
     <v-container>
-      <v-row>
-        <v-col cols="12" sm="6" md="3">
+      <v-row id="row-buttons">
+        <v-col cols="12" sm="3" md="2">
           <v-btn :disabled="chosenViruses.length == 0" @click="mutation()">Mutation</v-btn>
         </v-col>
 
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="3" md="2">
           <v-btn :disabled="chosenViruses.length == 0" @click="cut()">Cut</v-btn>
         </v-col>
 
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="3" md="2">
           <v-btn @click="$router.push({ path: '/labo/mix' })">Go to mixer</v-btn>
         </v-col>
       </v-row>
@@ -105,4 +105,9 @@ export default {
 </script>
 
 <style scoped>
+#row-text-fields,
+#row-buttons {
+  display: flex;
+  justify-content: center;
+}
 </style>
