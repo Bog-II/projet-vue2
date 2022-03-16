@@ -1,6 +1,6 @@
 <template>
   <v-app-bar>
-    <v-tabs centered center-active>
+    <v-tabs centered center-active id="tabs">
       <v-tab
         v-for="(t, index) in titles"
         :key="index"
@@ -19,4 +19,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#tabs {
+  display: flex;
+  justify-content: center;
+}
 </style>
