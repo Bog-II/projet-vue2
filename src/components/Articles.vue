@@ -34,9 +34,9 @@
           <td>{{ v.code }}</td>
           <td>{{ v.mortalite }}</td>
           <td>
-            <button
+            <v-btn
               @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
-            >Clone virus for the lab</button>
+            >Clone virus for the lab</v-btn>
           </td>
         </tr>
       </tbody>
