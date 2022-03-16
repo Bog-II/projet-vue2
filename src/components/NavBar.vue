@@ -1,14 +1,20 @@
 <template>
-  <div>
-    <button v-for="(t,index) in titles" :key="index" :style="{color : t.color}" @click="$router.push({path:t.path})">{{t.text}}</button>
-  </div>
+  <v-app-bar>
+    <v-tabs centered center-active>
+      <v-tab
+        v-for="(t, index) in titles"
+        :key="index"
+        @click="$router.push({ path: t.path })"
+      >{{ t.text }}</v-tab>
+    </v-tabs>
+  </v-app-bar>
 </template>
 
 <script>
-  export default {
-    name: 'NavBar',
-    props: ['titles']
-  }
+export default {
+  name: 'NavBar',
+  props: ['titles']
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
