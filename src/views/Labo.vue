@@ -1,7 +1,29 @@
 <template>
-  <div>
+  <div id="laboratoire">
     <h1>Labo</h1>
-    <table border="1">
+    <!-- <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">Virus Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(v, index) in collec" :key="index">
+          <td>{{ v.name }}</td>
+          <td>{{ v.code }}</td>
+          <td>{{ v.mortalite }}</td>
+          <td>
+            <v-btn
+              @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
+            >Clone virus for the lab</v-btn>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    </v-simple-table>-->
+
+    <v-simple-table>
       <tr>
         <td>
           <keep-alive include="Mixer">
@@ -14,7 +36,7 @@
           </keep-alive>
         </td>
       </tr>
-    </table>
+    </v-simple-table>
   </div>
 </template>
 
@@ -85,4 +107,8 @@ export default {
 </script>
 
 <style scoped>
+#laboratoire {
+  margin: max(10px, 4%);
+  row-gap: 20px;
+}
 </style>

@@ -1,30 +1,55 @@
 <template>
   <div>
-    <h1>Labo</h1>
-    <table border="0">
-      <tr>
-        <td>
-          <h1>Viruses</h1>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <CheckedList
-            :fields="['name', 'code']"
-            :entries="samples"
-            @chosen-changed="chosenViruses = $event"
+    <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">Viruses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <CheckedList
+              :fields="['name', 'code']"
+              :entries="samples"
+              @chosen-changed="chosenViruses = $event"
+            />
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
+
+    <v-container>
+      <v-row class="d-flex justify-center">
+        <v-col cols="12" sm="6" md="3">
+          <v-text-field label="Part Length" v-model.number="cutFactor" filled class="pa-0" />
+        </v-col>
+        <v-col cols="12" sm="6" md="3">
+          <v-text-field
+            label="Nombre de mutations"
+            v-model.number="nbMutation"
+            filled
+            class="pa-0"
           />
-        </td>
-      </tr>
-    </table>
-    <label for="cut">part length:</label>
-    <input id="cut" v-model.number="cutFactor" />
-    <button :disabled="chosenViruses.length == 0" @click="cut()">Cut</button>
-    <label for="mute">nb mutations:</label>
-    <input id="mute" v-model.number="nbMutation" />
-    <button :disabled="chosenViruses.length == 0" @click="mutation()">Mutation</button>
-    <hr />
-    <button @click="$router.push({ path: '/labo/mix' })">Go to mixer</button>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container>
+      <v-row>
+        <v-col cols="12" sm="6" md="3">
+          <v-btn :disabled="chosenViruses.length == 0" @click="mutation()">Mutation</v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="6" md="3">
+          <v-btn :disabled="chosenViruses.length == 0" @click="cut()">Cut</v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="6" md="3">
+          <v-btn @click="$router.push({ path: '/labo/mix' })">Go to mixer</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
