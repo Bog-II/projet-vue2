@@ -1,6 +1,6 @@
 <template>
   <v-app-bar>
-    <v-tabs centered center-active id="tabs">
+    <v-tabs id="tabs">
       <v-tab
         v-for="(t, index) in titles"
         :key="index"
