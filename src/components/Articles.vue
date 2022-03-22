@@ -14,9 +14,8 @@
           <td>{{ v.code }}</td>
           <td>{{ v.mortalite }}</td>
           <td>
-            <v-btn
-              @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
-            >Clone virus for the lab</v-btn>
+            <v-btn @click="addToBasket(v)">Clone virus for the lab</v-btn>
+
           </td>
         </tr>
       </tbody>
@@ -25,10 +24,16 @@
 </template>
 
 <script>
-
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Articles',
-  props: ['collec']
+  props: ['collec'],
+  methods: {
+    addToBasket(virus) {
+      this.$store.commit('addToBasket',virus)
+      // this.$router.push({ path: '/library/view' }).catch(()=>{})
+    }
+  }
 }
 </script>
 
