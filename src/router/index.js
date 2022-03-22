@@ -6,6 +6,7 @@ import Library from '../views/Library.vue'
 import Basket from '../views/Basket.vue'
 import Slicer from '../views/Slicer.vue'
 import Mixer from '../views/Mixer.vue'
+import store from "@/store";
 
 Vue.use(VueRouter)
 
