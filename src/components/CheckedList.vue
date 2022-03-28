@@ -19,23 +19,21 @@
       </tr>
     </table>
 
-  <pre>
+    <!-- <pre>
     {{entries}}
   </pre>
     <pre>{{fields}}</pre>    
-    <pre>{{chosenEntries}}</pre>
+    <pre>{{chosenEntries}}</pre>-->
 
     <v-data-table
-        v-model="chosenEntries"
-        :headers="entries"
-        :items="fields"
-        :single-select="false"
-        show-select
-        class="elevation-1"
-    >
-    </v-data-table>
+      v-model="chosenEntries"
+      :headers="entries"
+      :items="fields"
+      :single-select="false"
+      show-select
+      class="elevation-1"
+    ></v-data-table>
   </div>
-
 </template>
 
 <script>

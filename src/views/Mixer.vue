@@ -1,26 +1,26 @@
 <template>
   <div>
-    <!-- <v-simple-table>
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">Virus Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(v, index) in collec" :key="index">
-          <td>{{ v.name }}</td>
-          <td>{{ v.code }}</td>
-          <td>{{ v.mortalite }}</td>
-          <td>
-            <v-btn
-              @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
-            >Clone virus for the lab</v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table> -->
+    <v-simple-table>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">Virus Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(v, index) in collec" :key="index">
+            <td>{{ v.name }}</td>
+            <td>{{ v.code }}</td>
+            <td>{{ v.mortalite }}</td>
+            <td>
+              <v-btn
+                @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
+              >Clone virus for the lab</v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
     <table border="0">
       <tr>
         <td>
@@ -43,7 +43,9 @@
       New virus:
       <input v-model="newVirus.name" />
       {{ newVirus.code }} {{ newVirus.mortalite }}
-      <button @click="sendToLibrary">Send to library</button>
+      <button
+        @click="sendToLibrary"
+      >Send to library</button>
     </p>
   </div>
 </template>
