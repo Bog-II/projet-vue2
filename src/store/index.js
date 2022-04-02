@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {Virus} from "@/model";
+import basket from "@/views/Basket";
 
 Vue.use(Vuex)
 
@@ -57,14 +58,22 @@ export default new Vuex.Store({
     },
 
     //Baskets
-    sendBasketToLab(state) {
-      this.$emit('send-lab', this.basket)
-      this.basket.splice(0, this.basket.length)
+    sendBasketToLab(state, virus) {
+      for (let i = 0; i < state.basket.length; i++){
+        console.log("HAHAH")
+        state.samples.push(new Virus(state.basket[i].id, state.basket[i].name, state.basket[i].code))
+      }
+      console.log("HEHEHE")
+      state.basket.splice(0, state.basket.length)
+
+      // state.samples.push(new Virus(virus.id, virus.name, virus.code))
+      // state.basket.splice(virus.id, this.basket.length)
+      // this.$emit('send-lab', this.basket)
+      // this.basket.splice(0, this.basket.length)
     },
 
     addToBasket(state, virus) {
       state.basket.push(new Virus(0, virus.name, virus.code))
-      console.log("Helllo")
     },
   },
     actions: {},

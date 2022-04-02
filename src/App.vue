@@ -4,7 +4,7 @@
     <keep-alive>
       <router-view
         name="locCentral"
-        :samples="samples"
+        :samples="$store.state.samples"
         :collec="collec"
         @send-lab="receiveVirus($event)"
         @store-virus="collec.push($event)"

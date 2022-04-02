@@ -29,8 +29,8 @@
           <keep-alive include="Mixer">
             <router-view
               name="locSubCentral"
-              :parts="parts"
-              :samples="samples"
+              :parts="$store.state.parts"
+              :samples="$store.state.samples"
               @store-virus="$emit('store-virus', $event)"
             ></router-view>
           </keep-alive>

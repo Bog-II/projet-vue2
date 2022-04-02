@@ -38,8 +38,10 @@ export default {
   },
   methods: {
     sendToLab: function () {
-      this.$emit('send-lab', this.basket);
-      this.basket.splice(0, this.basket.length)
+      console.log("VAZI")
+      this.$store.commit('sendBasketToLab', this)
+      // this.$emit('send-lab', this.basket);
+      // this.basket.splice(0, this.basket.length)
     }
   },
 }
