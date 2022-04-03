@@ -11,8 +11,8 @@
           <tr>
             <CheckedList
               :fields="['name', 'code']"
-              :entries="samples"
-              @chosen-changed="chosenViruses = $event"
+              :entries="$store.state.samples"
+              @chosen-changed="$store.state.chosenViruses = $event"
             />
           </tr>
         </tbody>
@@ -38,11 +38,11 @@
     <v-container>
       <v-row id="row-buttons">
         <v-col cols="12" sm="3" md="2">
-          <v-btn :disabled="chosenViruses.length == 0" @click="mutation()">Mutation</v-btn>
+          <v-btn :disabled="$store.state.chosenViruses.length == 0" @click="mutation()">Mutation</v-btn>
         </v-col>
 
         <v-col cols="12" sm="3" md="2">
-          <v-btn :disabled="chosenViruses.length == 0" @click="cut()">Cut</v-btn>
+          <v-btn :disabled="$store.state.chosenViruses.length == 0" @click="cut()">Cut</v-btn>
         </v-col>
 
         <v-col cols="12" sm="3" md="2">
@@ -58,7 +58,7 @@ import CheckedList from '../components/CheckedList.vue'
 
 export default {
   name: 'Slicer',
-  props: ['samples', 'parts'],
+  props: ['parts'],
   data: () => {
     return {
       chosenViruses: [],
@@ -71,6 +71,10 @@ export default {
   },
   methods: {
     cut: function () {
+      console.log("VAZI")
+      this.$store.commit('cut', this)
+
+
       if (this.cutFactor == 0) return;
       this.chosenViruses.forEach(e => {
         let s = this.samples[e];
@@ -84,7 +88,11 @@ export default {
       }
       // unselect all
       this.chosenViruses.splice(0, this.chosenViruses.length)
+
+
+
     },
+
     mutation: function () {
       if (this.nbMutation == 0) return;
 

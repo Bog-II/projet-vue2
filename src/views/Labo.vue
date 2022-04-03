@@ -1,27 +1,27 @@
 <template>
   <div id="laboratoire">
     <h1>Labo</h1>
-    <v-simple-table>
-      <template v-slot:default>
-        <thead>
-          <tr>
-            <th class="text-left">Virus Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(v, index) in collec" :key="index">
-            <td>{{ v.name }}</td>
-            <td>{{ v.code }}</td>
-            <td>{{ v.mortalite }}</td>
-            <td>
-              <v-btn
-                @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"
-              >Clone virus for the lab</v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </template>
-    </v-simple-table>
+<!--    <v-simple-table>-->
+<!--      <template v-slot:default>-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th class="text-left">Virus Name</th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--          <tr v-for="(v, index) in collec" :key="index">-->
+<!--            <td>{{ v.name }}</td>-->
+<!--            <td>{{ v.code }}</td>-->
+<!--            <td>{{ v.mortalite }}</td>-->
+<!--            <td>-->
+<!--              <v-btn-->
+<!--                @click="$router.push({ path: '/library/addbasket?name=' + v.name + '&code=' + v.code })"-->
+<!--              >Clone virus for the lab</v-btn>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </template>-->
+<!--    </v-simple-table>-->
 
     <v-simple-table>
       <tr>
@@ -45,28 +45,12 @@ import { Virus, viruses } from '../model.js'
 
 export default {
   name: 'Labo',
-  props: ['samples'],
   data: () => {
     return {
       parts: []
     }
   },
   methods: {
-    cut: function () {
-      if (this.cutFactor == 0) return;
-      this.chosenViruses.forEach(e => {
-        let s = this.samples[e];
-        for (let i = 0; i < s.code.length; i += this.cutFactor) {
-          this.parts.push({ code: s.code.substring(i, i + this.cutFactor) });
-        }
-      });
-      // remove chosen viruses
-      for (let i = this.chosenViruses.length - 1; i >= 0; i--) {
-        this.samples.splice(this.chosenViruses[i], 1);
-      }
-      // unselect all
-      this.chosenViruses.splice(0, this.chosenViruses.length)
-    },
     mutation: function () {
       if (this.nbMutation == 0) return;
 
